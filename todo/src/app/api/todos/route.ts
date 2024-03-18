@@ -1,5 +1,5 @@
 const todos = [
-  { id: 1001, name: "Abid Ali Khokhar", course: "Typescript" },
+  { id: "1001", name: "Abid Ali Khokhar", course: "Typescript" },
   { id: 1002, name: "Noman Ali Khan", course: "Javascript" },
 ];
 
@@ -86,7 +86,6 @@ export async function DELETE(request: Request) {
 }
 
 // http://localhost:3000/api/todos/?id=1001
-
 
 // PUT API
 export async function PUT(request: Request) {

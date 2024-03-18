@@ -2,17 +2,41 @@
 import React from 'react'
 import { useState } from 'react'
 
+
 const Form = () => {
     const [id, setId] = useState();
     const [name, setName] = useState();
     const [course, setCourse] = useState();
+  
 
     const submitHandler = (e: any) => {
         e.preventDefault();
-        console.log(id);
-        console.log(name)
-        console.log(course)
-    }
+
+  // POST request using fetch()
+  fetch("http://localhost:3000/api/todos", {
+    // Adding method type
+    method: "POST",
+    
+    // Adding body or contents to send
+    body: JSON.stringify({
+      id: Number(id),
+      name: name,
+      course: course,
+    }),
+    // Adding headers to the request
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+
+
+}
+
+
+//
     return (
         <>
             <div className='p-10 bg-gray-200'>
